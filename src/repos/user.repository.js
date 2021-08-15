@@ -13,6 +13,9 @@ module.exports = {
     async getUserForLogin(user){
         return await User.getByNameOrEmail(user, user);
     },
+    async getUserToken(id){
+        return await User.getToken(id);
+    },
     async checkUserExist(username, email) {
         return await User.getByNameOrEmail(username, email);
     },
