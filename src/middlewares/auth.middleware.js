@@ -1,14 +1,7 @@
-const { verifyToken } = require('../services/auth.service');
+const passport = require('passport');
 
-const checkToken = (req, res, next) => {
-    const _token = req.headers['x-access-token'];
-    verifyToken(_token).then(() => {
-        next();
-    }).catch(err => {
-        res.status(401).json(err);
-    });
-}
+const attempLogin = passport.authenticate('basic', { session: false });
 
 module.exports = {
-    checkToken,
+    attempLogin,
 }

@@ -15,6 +15,7 @@ const verifyUser = (password, salt, hash) => generateHash(password, salt).hash =
 
 const getUsers = async () => await userRepository.getUsers();
 const getuserById = async (id) => await userRepository.getUserById(id);
+const getUserByToken = async token => await userRepository.getUserByToken(token);
 
 const checkUserExist = (username, email) => {
     return new Promise(async (resolve, reject) => {
@@ -57,6 +58,7 @@ const updateUser = async ({ username, email, password, id }) => {
 
 module.exports = {
     getUsers,
+    getUserByToken,
     generateHash,
     getuserById,
     createUser,
