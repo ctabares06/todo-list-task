@@ -10,7 +10,7 @@ const verifyToken =
             throw new Error("User does not exist");
           }
           const [user] = response;
-          const isCorrectPassword = verifyUser(password, user.salt, user.hash);
+          const isCorrectPassword = verifyUser(password, user.salt, user.password);
           if (!isCorrectPassword) {
             throw new Error("wrong password");
           }
